@@ -96,6 +96,106 @@ button {
   border-radius: 999px;
 }
 
+.music-control {
+  position: absolute;
+  left: calc(var(--x) * var(--scale));
+  top: calc(var(--y) * var(--scale));
+  width: calc(var(--w) * var(--scale));
+  height: calc(var(--h) * var(--scale));
+  z-index: 42;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(10 * var(--scale));
+  border: calc(2 * var(--scale)) solid rgba(95, 75, 52, 0.22);
+  border-radius: 999px;
+  color: #34291f;
+  background: rgba(250, 239, 219, 0.88);
+  box-shadow: 0 4px 14px rgba(80, 58, 32, 0.12);
+  font-size: calc(27 * var(--scale));
+  font-weight: 700;
+  font-family: "Songti SC", "SimSun", serif;
+  backdrop-filter: blur(4px);
+}
+
+.screen-1-music-on,
+.screen-2-music-on,
+.screen-3-music-on,
+.screen-4-music-on,
+.screen-5-music-on {
+  opacity: 0;
+}
+
+.music-control::after {
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: 18%;
+  height: calc(3 * var(--scale));
+  content: "";
+  border-radius: 999px;
+  background: rgba(71, 56, 39, 0.38);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.26s ease;
+}
+
+.music-control:not(.is-playing)::after {
+  transform: scaleX(1);
+}
+
+.music-control i {
+  display: grid;
+  place-items: center;
+  width: calc(36 * var(--scale));
+  height: calc(36 * var(--scale));
+  border-radius: 50%;
+  font-style: normal;
+  font-size: calc(34 * var(--scale));
+  line-height: 1;
+}
+
+.music-control.is-playing i {
+  animation: musicSpin 1.4s linear infinite;
+}
+
+.home-date {
+  position: absolute;
+  left: calc(150 * var(--scale));
+  right: calc(150 * var(--scale));
+  top: calc(132 * var(--scale));
+  z-index: 44;
+  display: grid;
+  gap: calc(8 * var(--scale));
+  text-align: center;
+  color: rgba(61, 47, 34, 0.82);
+  font-family: "STKaiti", "KaiTi", "Songti SC", serif;
+  pointer-events: none;
+}
+
+.home-date strong {
+  font-size: calc(30 * var(--scale));
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.home-date span {
+  font-size: calc(24 * var(--scale));
+}
+
+.home-down-arrow {
+  position: absolute;
+  left: 50%;
+  bottom: calc(34 * var(--scale));
+  z-index: 45;
+  width: calc(62 * var(--scale));
+  height: calc(62 * var(--scale));
+  transform: translateX(-50%);
+  background: url("./assets/common/down-arrow.png") center / contain no-repeat;
+  animation: arrowBounce 1.3s ease-in-out infinite;
+  pointer-events: none;
+}
+
 .screen2-card {
   position: absolute;
   z-index: 18;
@@ -349,6 +449,63 @@ button {
   transform: translate(-50%, 0);
 }
 
+.wish-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(59, 42, 24, 0.32);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.24s ease;
+  backdrop-filter: blur(5px);
+}
+
+.wish-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.wish-modal-card {
+  width: min(82vw, 340px);
+  padding: 30px 24px 24px;
+  text-align: center;
+  border: 1px solid rgba(145, 101, 54, 0.22);
+  border-radius: 18px;
+  color: #3b2f24;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.72), transparent 30%),
+    #f8ecd4;
+  box-shadow: 0 22px 60px rgba(56, 37, 18, 0.28);
+}
+
+.wish-modal-card h2 {
+  margin: 0;
+  font-family: "STKaiti", "KaiTi", "Songti SC", serif;
+  font-size: 25px;
+  line-height: 1.35;
+}
+
+.wish-modal-card p {
+  margin: 18px 0 24px;
+  font-family: "STKaiti", "KaiTi", "Songti SC", serif;
+  font-size: 22px;
+}
+
+.home-button {
+  min-width: 158px;
+  height: 42px;
+  padding: 0 22px;
+  border: 1px solid rgba(92, 110, 82, 0.42);
+  border-radius: 999px;
+  color: #fff8ea;
+  background: linear-gradient(135deg, #6d7d61, #8c946d);
+  font-size: 16px;
+  font-weight: 700;
+}
+
 @keyframes fall {
   0% {
     opacity: 0;
@@ -362,6 +519,24 @@ button {
   100% {
     opacity: 0.05;
     transform: translate3d(var(--drift), 110vh, 0) rotate(360deg);
+  }
+}
+
+@keyframes musicSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    opacity: 0.55;
+    transform: translateX(-50%) translateY(-4px);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(6px);
   }
 }
 

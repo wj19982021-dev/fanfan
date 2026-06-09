@@ -2,6 +2,8 @@ const app = document.getElementById("app");
 const bgm = document.getElementById("bgm");
 const toast = document.getElementById("toast");
 const petalLayer = document.getElementById("petalLayer");
+const wishModal = document.getElementById("wishModal");
+const homeButton = document.getElementById("homeButton");
 
 const screens = ["screen-1", "screen-2", "screen-3", "screen-4", "screen-5"];
 const layerRoot = "./assets/layers/";
@@ -125,6 +127,8 @@ const hitTargets = {
 
 let layout;
 let toastTimer;
+let musicOn = true;
+let triedGesturePlay = false;
 
 function cssClassFromFile(file) {
   return file.replace(".png", "");
@@ -157,6 +161,29 @@ function addHit(screenEl, box, target) {
   button.addEventListener("click", () => handleAction(screenEl, target));
   screenEl.appendChild(button);
   return button;
+}
+
+function addMusicControl(screenEl, box) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "music-control";
+  button.setAttribute("aria-label", "音乐开关");
+  button.innerHTML = "<i>♪</i><span>音乐：开</span>";
+  setBox(button, {
+    x: Math.max(0, box.x - 16),
+    y: Math.max(0, box.y - 10),
+    w: box.w + 38,
+    h: box.h + 20
+  });
+  button.addEventListener("click", toggleMusic);
+  screenEl.appendChild(button);
+}
+
+function addHomeDate(screenEl) {
+  const date = document.createElement("div");
+  date.className = "home-date";
+  date.innerHTML = "<strong>丙午年 甲午月 乙卯日</strong><span>公历 2026年6月10日</span>";
+  screenEl.appendChild(date);
 }
 
 function showToast(text) {
@@ -195,17 +222,37 @@ function makePetals(count = 16) {
 }
 
 async function toggleMusic() {
-  if (bgm.paused) {
+  if (!musicOn) {
     try {
       await bgm.play();
-      showToast("音乐已开启");
+      musicOn = true;
     } catch {
-      showToast("放入 assets/bgm.mp3 后即可播放");
+      musicOn = false;
     }
   } else {
     bgm.pause();
-    showToast("音乐已关闭");
+    musicOn = false;
   }
+  updateMusicControls();
+}
+
+function updateMusicControls() {
+  document.querySelectorAll(".music-control").forEach((button) => {
+    button.classList.toggle("is-playing", musicOn);
+    button.querySelector("span").textContent = `音乐：${musicOn ? "开" : "关"}`;
+  });
+}
+
+async function tryGesturePlay() {
+  if (triedGesturePlay || !musicOn || !bgm.paused) return;
+  triedGesturePlay = true;
+  try {
+    await bgm.play();
+    musicOn = true;
+  } catch {
+    musicOn = false;
+  }
+  updateMusicControls();
 }
 
 function clearCardStates(screenEl) {
@@ -269,6 +316,8 @@ function handleAction(screenEl, target) {
   if (target.action === "receive") {
     screenEl.classList.add("received");
     burstPetals(22);
+    wishModal.classList.add("is-open");
+    wishModal.setAttribute("aria-hidden", "false");
   }
 }
 
@@ -302,8 +351,19 @@ function renderScreen(screenName) {
   hitTargets[screenName].forEach((target) => {
     const box = screenLayout[target.file];
     if (!box) return;
-    addHit(screenEl, box, target);
+    if (target.action === "music") {
+      addMusicControl(screenEl, box);
+    } else {
+      addHit(screenEl, box, target);
+    }
   });
+
+  if (screenName === "screen-1") {
+    addHomeDate(screenEl);
+    const arrow = document.createElement("span");
+    arrow.className = "home-down-arrow";
+    screenEl.appendChild(arrow);
+  }
 }
 
 function addFullBg(screenEl, src, alt) {
@@ -359,39 +419,19 @@ function renderScreen2(screenEl) {
     screenEl.appendChild(button);
   });
 
-  addHit(screenEl, { x: 720, y: 42, w: 190, h: 72 }, { name: "music", action: "music", round: true });
+  addMusicControl(screenEl, { x: 720, y: 42, w: 190, h: 72 });
 }
 
 function renderScreen4(screenEl) {
   screenEl.classList.add("compact");
-  addFullBg(screenEl, `${screenRoot}screen-4-back.png`, "愿望签");
-
-  for (let index = 1; index <= 5; index += 1) {
-    const img = document.createElement("img");
-    img.src = `${screenRoot}screen-4-front.png`;
-    img.alt = "";
-    img.className = `wish-front wish-front-${index}`;
-    screenEl.appendChild(img);
-  }
-
-  const tagBoxes = [
-    { x: 25, y: 540, w: 150, h: 650 },
-    { x: 205, y: 540, w: 150, h: 650 },
-    { x: 385, y: 540, w: 150, h: 650 },
-    { x: 565, y: 540, w: 150, h: 650 },
-    { x: 745, y: 540, w: 150, h: 650 }
-  ];
-
-  tagBoxes.forEach((box, index) => {
-    addHit(screenEl, box, { name: `tag-${index + 1}`, action: "tag", index: index + 1 });
-  });
-
-  addHit(screenEl, { x: 720, y: 42, w: 190, h: 72 }, { name: "music", action: "music", round: true });
+  addFullBg(screenEl, `${screenRoot}screen-4-final.png`, "愿望签");
+  addMusicControl(screenEl, { x: 720, y: 42, w: 190, h: 72 });
 }
 
 async function init() {
   const response = await fetch("./assets/layout.json");
   layout = await response.json();
+  bgm.volume = 0.22;
   screens.forEach(renderScreen);
   await Promise.all(
     [...document.images].map((img) => {
@@ -404,9 +444,17 @@ async function init() {
   );
   makePetals();
   document.body.classList.add("is-ready");
+  updateMusicControls();
+  document.addEventListener("pointerdown", tryGesturePlay, { once: true });
 }
 
 init().catch((error) => {
   console.error(error);
   showToast("素材加载失败，请检查 assets 目录");
+});
+
+homeButton.addEventListener("click", () => {
+  wishModal.classList.remove("is-open");
+  wishModal.setAttribute("aria-hidden", "true");
+  document.getElementById("screen-1").scrollIntoView({ behavior: "smooth" });
 });
