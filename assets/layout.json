@@ -1,0 +1,476 @@
+{
+  "canvas": {
+    "width": 946,
+    "height": 2048
+  },
+  "note": "这些素材是从整张设计图中按矩形区域近似切出。由于原图不是分层源文件，背景无法被真正补全，透明 PNG 中的元素区域仍会带少量原背景。建议前端先用于 1:1 位置还原，最终如需更干净的透明素材，请用分层 PSD/Figma 或重新生成单独元素。",
+  "screen-1": {
+    "screen-1-bg.png": {
+      "x": 0,
+      "y": 0,
+      "w": 946,
+      "h": 2048
+    },
+    "screen-1-music-on.png": {
+      "x": 710,
+      "y": 42,
+      "w": 195,
+      "h": 74
+    },
+    "screen-1-dog-normal.png": {
+      "x": 70,
+      "y": 1050,
+      "w": 390,
+      "h": 300
+    },
+    "screen-1-seal-normal.png": {
+      "x": 445,
+      "y": 1280,
+      "w": 210,
+      "h": 220
+    },
+    "screen-1-seal-glow.png": {
+      "x": 420,
+      "y": 1245,
+      "w": 260,
+      "h": 280
+    },
+    "screen-1-open-tip.png": {
+      "x": 260,
+      "y": 930,
+      "w": 450,
+      "h": 90
+    },
+    "screen-1-title-text.png": {
+      "x": 180,
+      "y": 250,
+      "w": 610,
+      "h": 610
+    },
+    "screen-1-petals.png": {
+      "x": 0,
+      "y": 0,
+      "w": 946,
+      "h": 2048
+    },
+    "screen-1-brushes.png": {
+      "x": 0,
+      "y": 1060,
+      "w": 150,
+      "h": 360
+    },
+    "screen-1-inkstone.png": {
+      "x": 0,
+      "y": 1480,
+      "w": 230,
+      "h": 240
+    },
+    "screen-1-scroll.png": {
+      "x": 95,
+      "y": 1280,
+      "w": 380,
+      "h": 150
+    },
+    "screen-1-calligraphy-paper.png": {
+      "x": 570,
+      "y": 1450,
+      "w": 300,
+      "h": 220
+    }
+  },
+  "screen-2": {
+    "screen-2-bg.png": {
+      "x": 0,
+      "y": 0,
+      "w": 946,
+      "h": 2048
+    },
+    "screen-2-music-on.png": {
+      "x": 715,
+      "y": 42,
+      "w": 190,
+      "h": 72
+    },
+    "screen-2-girl.png": {
+      "x": 610,
+      "y": 520,
+      "w": 300,
+      "h": 720
+    },
+    "screen-2-dog-normal.png": {
+      "x": 430,
+      "y": 1130,
+      "w": 190,
+      "h": 180
+    },
+    "screen-2-ripple-normal.png": {
+      "x": 125,
+      "y": 1120,
+      "w": 240,
+      "h": 120
+    },
+    "screen-2-ripple-active.png": {
+      "x": 95,
+      "y": 1080,
+      "w": 310,
+      "h": 180
+    },
+    "screen-2-water-tip.png": {
+      "x": 145,
+      "y": 960,
+      "w": 420,
+      "h": 70
+    },
+    "screen-2-card-1-normal.png": {
+      "x": 40,
+      "y": 1510,
+      "w": 280,
+      "h": 330
+    },
+    "screen-2-card-1-active.png": {
+      "x": 30,
+      "y": 1490,
+      "w": 300,
+      "h": 360
+    },
+    "screen-2-card-2-normal.png": {
+      "x": 335,
+      "y": 1510,
+      "w": 280,
+      "h": 330
+    },
+    "screen-2-card-2-active.png": {
+      "x": 325,
+      "y": 1490,
+      "w": 300,
+      "h": 360
+    },
+    "screen-2-card-3-normal.png": {
+      "x": 630,
+      "y": 1510,
+      "w": 280,
+      "h": 330
+    },
+    "screen-2-card-3-active.png": {
+      "x": 620,
+      "y": 1490,
+      "w": 300,
+      "h": 360
+    },
+    "screen-2-main-text.png": {
+      "x": 95,
+      "y": 380,
+      "w": 545,
+      "h": 420
+    }
+  },
+  "screen-3": {
+    "screen-3-bg.png": {
+      "x": 0,
+      "y": 0,
+      "w": 946,
+      "h": 2048
+    },
+    "screen-3-music-on.png": {
+      "x": 720,
+      "y": 45,
+      "w": 190,
+      "h": 70
+    },
+    "screen-3-dog-normal.png": {
+      "x": 240,
+      "y": 960,
+      "w": 360,
+      "h": 260
+    },
+    "screen-3-lamp-off.png": {
+      "x": 720,
+      "y": 680,
+      "w": 175,
+      "h": 390
+    },
+    "screen-3-lamp-on.png": {
+      "x": 675,
+      "y": 620,
+      "w": 250,
+      "h": 480
+    },
+    "screen-3-rice.png": {
+      "x": 215,
+      "y": 1345,
+      "w": 260,
+      "h": 150
+    },
+    "screen-3-dish-1-normal.png": {
+      "x": 360,
+      "y": 1500,
+      "w": 270,
+      "h": 185
+    },
+    "screen-3-dish-1-active.png": {
+      "x": 330,
+      "y": 1460,
+      "w": 330,
+      "h": 240
+    },
+    "screen-3-dish-2-normal.png": {
+      "x": 635,
+      "y": 1460,
+      "w": 295,
+      "h": 220
+    },
+    "screen-3-dish-2-active.png": {
+      "x": 615,
+      "y": 1425,
+      "w": 325,
+      "h": 270
+    },
+    "screen-3-food-bubble.png": {
+      "x": 510,
+      "y": 1240,
+      "w": 385,
+      "h": 145
+    },
+    "screen-3-surprise-tip.png": {
+      "x": 32,
+      "y": 1665,
+      "w": 330,
+      "h": 160
+    },
+    "screen-3-hand-icon.png": {
+      "x": 465,
+      "y": 1680,
+      "w": 90,
+      "h": 110
+    },
+    "screen-3-swipe-tip.png": {
+      "x": 230,
+      "y": 1950,
+      "w": 500,
+      "h": 60
+    },
+    "screen-3-main-text.png": {
+      "x": 90,
+      "y": 170,
+      "w": 520,
+      "h": 650
+    }
+  },
+  "screen-4": {
+    "screen-4-bg.png": {
+      "x": 0,
+      "y": 0,
+      "w": 946,
+      "h": 2048
+    },
+    "screen-4-music-on.png": {
+      "x": 720,
+      "y": 42,
+      "w": 190,
+      "h": 72
+    },
+    "screen-4-dog-normal.png": {
+      "x": 705,
+      "y": 1380,
+      "w": 220,
+      "h": 310
+    },
+    "screen-4-title-text.png": {
+      "x": 250,
+      "y": 260,
+      "w": 460,
+      "h": 180
+    },
+    "screen-4-tag-1-normal.png": {
+      "x": 80,
+      "y": 555,
+      "w": 145,
+      "h": 590
+    },
+    "screen-4-tag-1-open.png": {
+      "x": 80,
+      "y": 555,
+      "w": 145,
+      "h": 590
+    },
+    "screen-4-tag-2-normal.png": {
+      "x": 260,
+      "y": 555,
+      "w": 145,
+      "h": 590
+    },
+    "screen-4-tag-2-open.png": {
+      "x": 260,
+      "y": 555,
+      "w": 145,
+      "h": 590
+    },
+    "screen-4-tag-3-normal.png": {
+      "x": 440,
+      "y": 555,
+      "w": 145,
+      "h": 590
+    },
+    "screen-4-tag-3-open.png": {
+      "x": 440,
+      "y": 555,
+      "w": 145,
+      "h": 590
+    },
+    "screen-4-tag-4-normal.png": {
+      "x": 620,
+      "y": 555,
+      "w": 145,
+      "h": 590
+    },
+    "screen-4-tag-4-open.png": {
+      "x": 620,
+      "y": 555,
+      "w": 145,
+      "h": 590
+    },
+    "screen-4-tag-5-normal.png": {
+      "x": 800,
+      "y": 555,
+      "w": 145,
+      "h": 590
+    },
+    "screen-4-tag-5-open.png": {
+      "x": 800,
+      "y": 555,
+      "w": 145,
+      "h": 590
+    },
+    "screen-4-result-panel.png": {
+      "x": 220,
+      "y": 1210,
+      "w": 540,
+      "h": 280
+    },
+    "screen-4-hand-tip.png": {
+      "x": 300,
+      "y": 1830,
+      "w": 350,
+      "h": 110
+    }
+  },
+  "screen-5": {
+    "screen-5-bg.png": {
+      "x": 0,
+      "y": 0,
+      "w": 946,
+      "h": 2048
+    },
+    "screen-5-music-on.png": {
+      "x": 720,
+      "y": 42,
+      "w": 190,
+      "h": 72
+    },
+    "screen-5-dog-envelope-normal.png": {
+      "x": 0,
+      "y": 1550,
+      "w": 310,
+      "h": 360
+    },
+    "screen-5-dog-envelope-active.png": {
+      "x": 0,
+      "y": 1530,
+      "w": 330,
+      "h": 390
+    },
+    "screen-5-letter-paper.png": {
+      "x": 180,
+      "y": 555,
+      "w": 610,
+      "h": 900
+    },
+    "screen-5-letter-paper-received.png": {
+      "x": 170,
+      "y": 540,
+      "w": 630,
+      "h": 930
+    },
+    "screen-5-button-normal.png": {
+      "x": 280,
+      "y": 1415,
+      "w": 450,
+      "h": 95
+    },
+    "screen-5-button-active.png": {
+      "x": 270,
+      "y": 1400,
+      "w": 470,
+      "h": 120
+    },
+    "screen-5-final-note.png": {
+      "x": 330,
+      "y": 1540,
+      "w": 330,
+      "h": 70
+    },
+    "screen-5-main-text.png": {
+      "x": 245,
+      "y": 650,
+      "w": 520,
+      "h": 640
+    },
+    "screen-5-inkstone-brush.png": {
+      "x": 620,
+      "y": 1610,
+      "w": 320,
+      "h": 260
+    }
+  },
+  "common": {
+    "petal-1.png": {
+      "source": "screen-1",
+      "x": 690,
+      "y": 245,
+      "w": 70,
+      "h": 70
+    },
+    "petal-2.png": {
+      "source": "screen-2",
+      "x": 92,
+      "y": 1035,
+      "w": 70,
+      "h": 70
+    },
+    "petal-3.png": {
+      "source": "screen-4",
+      "x": 765,
+      "y": 150,
+      "w": 80,
+      "h": 80
+    },
+    "hand-icon.png": {
+      "source": "screen-3",
+      "x": 470,
+      "y": 1685,
+      "w": 85,
+      "h": 100
+    },
+    "glow.png": {
+      "source": "screen-1",
+      "x": 420,
+      "y": 1245,
+      "w": 260,
+      "h": 280
+    },
+    "seal-stamp.png": {
+      "source": "screen-1",
+      "x": 482,
+      "y": 1310,
+      "w": 105,
+      "h": 105
+    },
+    "down-arrow.png": {
+      "source": "screen-2",
+      "x": 450,
+      "y": 1940,
+      "w": 55,
+      "h": 55
+    }
+  }
+}
