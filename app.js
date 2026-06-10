@@ -428,20 +428,30 @@ function renderScreen4(screenEl) {
   addMusicControl(screenEl, { x: 720, y: 42, w: 190, h: 72 });
 }
 
+function waitForImages(images, timeout = 6000) {
+  const imageList = [...images];
+  if (!imageList.length) return Promise.resolve();
+
+  const imagePromises = imageList.map((img) => {
+    if (img.complete) return Promise.resolve();
+    return new Promise((resolve) => {
+      img.addEventListener("load", resolve, { once: true });
+      img.addEventListener("error", resolve, { once: true });
+    });
+  });
+
+  return Promise.race([
+    Promise.all(imagePromises),
+    new Promise((resolve) => setTimeout(resolve, timeout))
+  ]);
+}
+
 async function init() {
   const response = await fetch("./assets/layout.json");
   layout = await response.json();
   bgm.volume = 0.22;
   screens.forEach(renderScreen);
-  await Promise.all(
-    [...document.images].map((img) => {
-      if (img.complete) return Promise.resolve();
-      return new Promise((resolve) => {
-        img.addEventListener("load", resolve, { once: true });
-        img.addEventListener("error", resolve, { once: true });
-      });
-    })
-  );
+  await waitForImages(document.querySelectorAll("#screen-1 img"));
   makePetals();
   document.body.classList.add("is-ready");
   updateMusicControls();
