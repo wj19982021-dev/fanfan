@@ -186,6 +186,13 @@ function addHomeDate(screenEl) {
   screenEl.appendChild(date);
 }
 
+function addNamePatch(screenEl, className, text) {
+  const patch = document.createElement("div");
+  patch.className = `name-patch ${className}`;
+  patch.textContent = text;
+  screenEl.appendChild(patch);
+}
+
 function showToast(text) {
   if (!text) return;
 }
@@ -360,9 +367,14 @@ function renderScreen(screenName) {
 
   if (screenName === "screen-1") {
     addHomeDate(screenEl);
+    addNamePatch(screenEl, "home-name-patch", "范范，");
     const arrow = document.createElement("span");
     arrow.className = "home-down-arrow";
     screenEl.appendChild(arrow);
+  }
+
+  if (screenName === "screen-5") {
+    addNamePatch(screenEl, "final-name-patch", "范范");
   }
 }
 
