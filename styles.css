@@ -183,41 +183,6 @@ button {
   font-size: calc(24 * var(--scale));
 }
 
-.name-patch {
-  position: absolute;
-  z-index: 46;
-  display: grid;
-  place-items: center;
-  color: rgba(46, 37, 28, 0.95);
-  font-family: "STKaiti", "KaiTi", "Songti SC", serif;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse at center, rgba(241, 230, 209, 0.98) 0%, rgba(241, 230, 209, 0.9) 58%, rgba(241, 230, 209, 0) 78%);
-  text-shadow: 0 1px 0 rgba(255, 248, 231, 0.45);
-}
-
-.home-name-patch {
-  left: calc(372 * var(--scale));
-  top: calc(302 * var(--scale));
-  width: calc(220 * var(--scale));
-  height: calc(86 * var(--scale));
-  font-size: calc(42 * var(--scale));
-}
-
-.final-name-patch {
-  left: calc(552 * var(--scale));
-  top: calc(1098 * var(--scale));
-  width: calc(228 * var(--scale));
-  height: calc(92 * var(--scale));
-  color: rgba(30, 27, 24, 0.96);
-  font-size: calc(54 * var(--scale));
-  font-weight: 700;
-  transform: rotate(1deg);
-}
-
 .home-down-arrow {
   position: absolute;
   left: 50%;
